@@ -10,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.tuuzed.android.logger:logger:latest.release'
-    implementation 'com.tuuzed.android.logger:log4j:latest.release'
+    implementation 'com.tuuzed.androidx.logger:logger:latest.release'
+    implementation 'com.tuuzed.androidx.logger:log4j:latest.release'
 }
 ```
 
