@@ -1,15 +1,12 @@
 package com.tuuzed.androidx.logger.log4j
 
 import android.util.Log
-import org.apache.log4j.AppenderSkeleton
-import org.apache.log4j.Layout
-import org.apache.log4j.Level
-import org.apache.log4j.PatternLayout
+import org.apache.log4j.*
 import org.apache.log4j.spi.LoggingEvent
 
-class Log4jLogcatAppender @JvmOverloads constructor(
-    messageLayout: Layout = PatternLayout("%m%n"),
-    var tagLayout: Layout = PatternLayout("%c")
+class LogcatAppenderImpl @JvmOverloads constructor(
+    private val tagLayout: Layout = PatternLayout("%c"),
+    messageLayout: Layout = PatternLayout("%m%n")
 ) : AppenderSkeleton() {
 
     init {
