@@ -1,6 +1,6 @@
 # Logger
 
-[ ![Download](https://api.bintray.com/packages/tuuzed/maven/com.tuuzed.androidx.logger%3Alogger/images/download.svg) ](https://bintray.com/tuuzed/maven/com.tuuzed.androidx.logger%3Aloggger/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/tuuzed/maven/com.tuuzed.androidx.logger%3Alogger/images/download.svg) ](https://bintray.com/tuuzed/maven/com.tuuzed.androidx.logger%3Alogger/_latestVersion)
 
 #### 添加依赖
 
