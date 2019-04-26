@@ -3,7 +3,7 @@ package com.tuuzed.androidx.logger.log4j
 import org.apache.log4j.PatternLayout
 import org.apache.log4j.RollingFileAppender
 
-class FileAppenderImpl @JvmOverloads constructor(
+class DefaultFileAppender @JvmOverloads constructor(
     filename: String,
     pattern: String = "%-d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] [%t] [%c]: %m %n",
     maxBackupSize: Int = 1,

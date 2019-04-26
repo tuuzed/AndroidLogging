@@ -4,8 +4,11 @@ import android.Manifest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tuuzed.androidx.logger.*
+import com.tuuzed.androidx.logger.log4j.DefaultFileAppender
+import com.tuuzed.androidx.logger.log4j.DefaultLogcatAppender
 import com.tuuzed.androidx.logger.log4j.Log4jLogger
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         Log.setImpl(
             Log4jLogger(
-                this,
-                log4jRootLevel = LogLevel.ALL
+                logcatLevel = LogLevel.OFF,
+                log4jRootLevel = LogLevel.ALL,
+                logcatAppender = DefaultLogcatAppender(),
+                fileAppender = DefaultFileAppender(File(getExternalFilesDir("log"), "log4j.log").absolutePath)
             )
         )
 

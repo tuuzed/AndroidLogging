@@ -1,28 +1,33 @@
 package com.tuuzed.androidx.logger.log4j
 
-import android.content.Context
 import android.util.Log
 import com.tuuzed.androidx.logger.LogLevel
 import com.tuuzed.androidx.logger.Logger
+import org.apache.log4j.Appender
 import org.apache.log4j.Level
-import java.io.File
+import org.apache.log4j.LogManager
+import org.apache.log4j.helpers.LogLog
 
-typealias Log4j = org.apache.log4j.Logger
 
 class Log4jLogger @JvmOverloads constructor(
-    cxt: Context,
     @LogLevel private val logcatLevel: Int = LogLevel.ALL,
     @LogLevel private val log4jRootLevel: Int = LogLevel.OFF,
-     configurator: Log4jConfigurator = Log4jConfigurator(
-        File(cxt.getExternalFilesDir("log"), "log4j.log").absolutePath
-    )
+    logcatAppender: Appender? = DefaultLogcatAppender(),
+    fileAppender: Appender? = null,
+    resetConfiguration: Boolean = false,
+    internalDebugging: Boolean = false
 ) : Logger {
 
-    private val useLogcatAppender: Boolean = configurator.useLogcatAppender
+    private val useLogcatAppender: Boolean = logcatAppender != null
 
     init {
         try {
-            configurator.rootLevel = when (log4jRootLevel) {
+            if (resetConfiguration) LogManager.getLoggerRepository().resetConfiguration()
+            val root = Log4j.getRootLogger()
+            LogLog.setInternalDebugging(internalDebugging)
+            fileAppender?.also { root.addAppender(it) }
+            logcatAppender?.also { root.addAppender(it) }
+            root.level = when (log4jRootLevel) {
                 LogLevel.ALL -> Level.ALL
                 LogLevel.VERBOSE -> Level.TRACE
                 LogLevel.DEBUG -> Level.DEBUG
@@ -33,11 +38,23 @@ class Log4jLogger @JvmOverloads constructor(
                 LogLevel.OFF -> Level.OFF
                 else -> Level.OFF
             }
-            configurator.configure()
             Log.e("Log4jLogger", "Log4j config finish")
         } catch (throwable: Throwable) {
-            configurator.resetConfiguration = true
             Log.e("Log4jLogger", "Log4j config error, use default config. Error:$throwable")
+        }
+    }
+
+    fun setLevel(loggerName: String, @LogLevel level: Int) {
+        Log4j.getLogger(loggerName).level = when (level) {
+            LogLevel.ALL -> Level.ALL
+            LogLevel.VERBOSE -> Level.TRACE
+            LogLevel.DEBUG -> Level.DEBUG
+            LogLevel.INFO -> Level.INFO
+            LogLevel.WARN -> Level.WARN
+            LogLevel.ERROR -> Level.ERROR
+            LogLevel.FATAL -> Level.FATAL
+            LogLevel.OFF -> Level.OFF
+            else -> Level.OFF
         }
     }
 

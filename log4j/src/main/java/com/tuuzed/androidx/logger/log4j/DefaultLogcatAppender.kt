@@ -4,7 +4,7 @@ import android.util.Log
 import org.apache.log4j.*
 import org.apache.log4j.spi.LoggingEvent
 
-class LogcatAppenderImpl @JvmOverloads constructor(
+class DefaultLogcatAppender @JvmOverloads constructor(
     private val tagLayout: Layout = PatternLayout("%c"),
     messageLayout: Layout = PatternLayout("%m%n")
 ) : AppenderSkeleton() {
