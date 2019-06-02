@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.tuuzed.androidx.logger.log4j"/>
+<manifest package="com.tuuzed.androidx.logging.log4j"/>
 
 

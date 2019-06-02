@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+
 apply plugin: 'gitvc-gradle-plugin'
 
 group = rootProject.group
@@ -24,8 +25,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.annotation
-    api deps.log4j
-    api project(':logging')
 }
 
 apply from: '../publish.gradle'
