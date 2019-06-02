@@ -1,6 +1,6 @@
-# Logger
+# AndroidLogging
 
-[ ![Download](https://api.bintray.com/packages/tuuzed/maven/com.tuuzed.androidx.logger%3Alogger/images/download.svg) ](https://bintray.com/tuuzed/maven/com.tuuzed.androidx.logger%3Aloggger/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/tuuzed/maven/com.tuuzed.androidx.logging%3Alogging/images/download.svg) ](https://bintray.com/tuuzed/maven/com.tuuzed.androidx.logging%3Alogging/_latestVersion)
 
 #### 添加依赖
 
@@ -10,8 +10,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.tuuzed.android.logger:logger:latest.release'
-    implementation 'com.tuuzed.android.logger:log4j:latest.release'
+    implementation 'com.tuuzed.android.logging:logging:latest.release'
+    implementation 'com.tuuzed.android.logging:logging-ktx:latest.release'
+    implementation 'com.tuuzed.android.logging:log4j:latest.release'
 }
 ```
 
