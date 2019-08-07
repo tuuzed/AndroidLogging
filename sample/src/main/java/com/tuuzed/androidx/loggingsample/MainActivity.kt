@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.tuuzed.androidx.logging.Logger
 import com.tuuzed.androidx.logging.ktx.*
 import com.tuuzed.androidx.logging.log4j.Log4jFileAppender
-import com.tuuzed.androidx.logging.log4j.Log4jLoggerImpl
 import com.tuuzed.androidx.logging.log4j.Log4jLogcatAppender
+import com.tuuzed.androidx.logging.log4j.Log4jLoggerImpl
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import pub.devrel.easypermissions.AfterPermissionGranted
@@ -54,12 +54,12 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
         if (EasyPermissions.hasPermissions(this, *perms)) {
-            LOG2V(TAG, "v")
-            LOG2D(TAG, "d")
-            LOG2I(TAG, "i")
-            LOG2W(TAG, "w")
-            LOG2E(TAG, "e")
-            LOG2F(TAG, "f")
+            LOGV(TAG, "v")
+            LOGD(TAG, "d")
+            LOGI(TAG, "i")
+            LOGW(TAG, "w")
+            LOGE(TAG, "e")
+            LOGF(TAG, "f")
         } else {
             EasyPermissions.requestPermissions(this, "保存日志需要读写外置存储权限。", REQUEST_CODE, *perms)
         }
