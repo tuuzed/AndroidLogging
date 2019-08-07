@@ -1,3 +1,4 @@
-include ':sample', ':logging-ktx'
-include ':log4j'
+include ':sample'
 include ':logging'
+include ':logging-ktx'
+include ':logging-log4j'

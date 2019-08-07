@@ -25,8 +25,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':log4j')
     implementation project(':logging')
+    implementation project(':logging-log4j')
     implementation project(':logging-ktx')
     implementation deps.kotlin
     implementation deps.appcompat

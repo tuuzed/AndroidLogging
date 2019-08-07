@@ -3,10 +3,10 @@ package com.tuuzed.androidx.loggingsample
 import android.Manifest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tuuzed.androidx.logging.Log2
+import com.tuuzed.androidx.logging.Logger
 import com.tuuzed.androidx.logging.ktx.*
 import com.tuuzed.androidx.logging.log4j.Log4jFileAppender
-import com.tuuzed.androidx.logging.log4j.Log4jLog2Impl
+import com.tuuzed.androidx.logging.log4j.Log4jLoggerImpl
 import com.tuuzed.androidx.logging.log4j.Log4jLogcatAppender
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         val logfile = File(getExternalFilesDir("log"), "log4j.txt")
-        Log2.setImpl(
-            Log4jLog2Impl(
-                Log2.INFO,
+        Logger.setImpl(
+            Log4jLoggerImpl(
+                Logger.VERBOSE,
                 Log4jLogcatAppender(),
                 Log4jFileAppender(logfile.absolutePath, true)
                     .immediateFlush(true)
