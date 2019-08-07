@@ -1,3 +1,4 @@
+rootProject.name = 'logging-parent'
 include ':sample'
 include ':logging'
 include ':logging-ktx'

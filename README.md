@@ -12,7 +12,7 @@ repositories {
 dependencies {
     implementation 'com.tuuzed.android.logging:logging:latest.release'
     implementation 'com.tuuzed.android.logging:logging-ktx:latest.release'
-    implementation 'com.tuuzed.android.logging:log4j:latest.release'
+    implementation 'com.tuuzed.android.logging:logging-log4j:latest.release'
 }
 ```
 
