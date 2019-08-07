@@ -10,7 +10,9 @@ import java.io.IOException;
 
 public class Log4jFileAppender extends RollingFileAppender {
 
-    private static final Layout defaultLayout = new PatternLayout("%-d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] [%t] [%c]: %m %n");
+    private static final Layout defaultLayout = new PatternLayout(
+            "%-d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] [%t] [%c]: %m %n"
+    );
 
     public Log4jFileAppender(@NonNull String filename, boolean append) throws IOException {
         this(defaultLayout, filename, append);

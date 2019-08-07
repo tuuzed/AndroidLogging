@@ -8,9 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/log4j" />
             <option value="$PROJECT_DIR$/logging" />
             <option value="$PROJECT_DIR$/logging-ktx" />
+            <option value="$PROJECT_DIR$/logging-log4j" />
             <option value="$PROJECT_DIR$/sample" />
           </set>
         </option>
